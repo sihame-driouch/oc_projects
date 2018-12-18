@@ -1,0 +1,677 @@
+ /* Declarer les polices */
+
+ @font-face
+ {
+  font-family: "Roboto-Regular";
+  src: url("fonts/Roboto-Regular.ttf");
+}
+
+@font-face
+{
+  font-family: "Roboto-Medium";
+  src: url("fonts/Roboto-Medium.ttf");
+}
+
+@font-face
+{
+  font-family: "Roboto-Black";
+  src: url("fonts/Roboto-Black.ttf");
+}
+
+@font-face
+{
+  font-family: "Roboto-Bold";
+  src: url("fonts/Roboto-Bold.ttf");
+}
+
+body
+{
+  margin: 0;
+}
+
+*
+{
+  font-family: "Roboto-Regular", Sans-Serif;
+}
+
+/* Permet d'afficher la section cibler correctment en dessous de l'en-tête */
+:target {
+  display: block;
+  position: relative;
+  top: -100px; /* Correspond au height de header */
+  visibility: hidden;
+}
+
+header
+{
+  position: fixed; /* sort du flux et reste en haut de page*/
+  top: 0;
+  width: 100%;
+  height: 100px;
+  z-index: 3; /* Pour s'assurer qu'il soit au dessus de tout autre element */
+  background-color: rgba(255, 255, 255, 0.9);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header img
+{
+  margin-left: 5%; /* placement du logo */
+}
+
+#services, #projets
+{
+  padding-top: 4em;
+}
+
+h2
+{
+  margin-top: 0;
+  text-align: center;
+  font-family: "Roboto-Black", Sans-Serif;
+  font-size: xx-large;
+  text-transform: uppercase;/* MAJ */
+  margin-bottom: 0.30em; /* espace entre titre et trait*/
+}
+
+a
+{
+  text-decoration: none;
+  color: black;
+}
+
+#Menu a
+{
+  display: flex;
+  align-items: center;
+  border-top: 2px solid transparent; /* Pour éviter un saut lors du hover */
+}
+
+#Menu a:hover
+{
+  border-top: 2px solid #5CADD3;
+}
+
+#Menu
+{
+  margin-right: 10%;
+  height: 100%; /* Pour pouvoir placer le border tout en haut de la page */
+}
+
+#Menu ul
+{
+  list-style-type: none;
+  display: flex;
+  margin: 0;
+  height: 100%; /* Pour pouvoir placer le border tout en haut de la page */
+}
+
+#Menu li
+{
+  margin-right: 15px;
+  display: flex;
+  align-items: stretch;
+}
+
+/* section intro */
+
+#present
+{
+  position: absolute; /* sur l'image*/
+  top: 50%;
+  left: 5%;
+  transform: translateY(-50%); /*positionner*/
+  width: 40%; /* place pour le texte*/
+}
+
+#present h1
+{
+  color: white;
+  font-family: "Roboto-Bold", Sans-Serif;
+  font-size: xx-large;
+}
+
+#present p, .bouton1
+{
+  color: white;
+  font-family: "Roboto-Medium", Sans-Serif;
+}
+
+.bouton1
+{
+  display: inline-block; /* Pour que le padding puisse etre pris en commpte */
+  padding: 12px;
+  border-radius: 3px;
+  background: #5CADD3;
+  text-align: center;
+  box-shadow: 0 4px 0 #4494BB;
+}
+
+span.title
+{
+  color: #5CADD3;
+  font-family: "Roboto-Bold", Sans-Serif;
+}
+
+#intro
+{
+  position: relative;
+  margin-top: 100px;
+}
+
+#slider figure
+{
+  position: relative;
+  width: 200%; /* 100 * nombre de photos */
+  margin: 0;
+  padding: 0;
+  animation: 10s slide infinite;
+  display: flex;
+  align-items: flex-start;
+}
+
+#slider figure img
+{
+  width: 50%; /* 100 / nombre de photos */
+  height: auto;
+}
+
+#slider
+{
+  max-width: 100%; /* Largeur du diapo*/
+  position: relative;
+  overflow: hidden; /* Pour cacher la scrollbar */
+}
+
+#slider .fa-chevron-left
+{
+  /* positionnement */
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  /* demi cercle */
+  border-bottom-right-radius: 60px;
+  border-top-right-radius: 60px;
+  background-color: rgba(0, 0, 0, 0.3);
+  width: 30px;
+  height: 60px;
+
+  /* icone*/
+  color: white;
+  line-height: 60px;/* centrer l'icone dans le cercle (icones=police d'écriture)*/
+  text-align: center;
+}
+
+#slider .fa-chevron-right
+{
+  /* positionnent */
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+
+  /* demi cercle*/
+  border-bottom-left-radius: 60px;
+  border-top-left-radius: 60px;
+  background-color: rgba(0, 0, 0, 0.3);
+  width: 30px;
+  height: 60px;
+
+  /* icone*/
+  color: white;
+  line-height: 60px;/* centrer l'icone dans le cercle (icones=police d'écriture)*/
+  text-align: center;
+}
+
+@keyframes slide {
+  0% { left: 0%; } /* 1er etape de l'animation*/
+  40% { left: 0%; } /* 2eme etape un peu d'attente*/
+  50% { left: -100%; } /* correspond a la moitier de figure*/
+  90% { left: -100%; }
+  100% { left: 0%; }
+}
+
+.section-title-separation
+{
+  position: relative;
+  margin: 0 auto; /* Centrer horizontalement */
+  height: 14px;
+  width: 10%;
+}
+
+.trait
+{
+  /* postion */
+  /* Pour centrer l'element par rapport a son parrent */
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  left: 50%;
+
+  /* trait */
+  height: 1px;
+  width: 100%;
+  background-color: lightgrey;
+}
+
+.rond
+{
+  /* position*/
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  left: 50%;
+
+  /*cercle*/
+  height: 14px;
+  width: 14px;
+  border-radius: 14px; /* Correspond a height et width */
+  border: 4px solid white;
+  background-color: #5CADD3;
+}
+
+.intro
+{
+  text-align: center;
+}
+
+/* Section services */
+
+#blocServices
+{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.service-img
+{
+  max-width: 50%;
+  height: auto;
+}
+
+.service-LogoDesc
+{
+  width: 50%;
+}
+
+.service-LogoDesc ul
+{
+  list-style-type: none;
+}
+
+.service-LogoDesc li
+{
+  display: flex;
+  margin-bottom: 20px;
+  align-items: flex-start;
+}
+
+.service-logo-group
+{
+  margin-right: 20px;
+  position: relative;
+}
+
+.service-icones {
+  font-size: 30px;
+  color: #5CADD3;
+  border-radius: 50%;
+  border: 1px solid lightgrey;
+  padding: 10px;
+}
+
+.service-logo-rond
+{
+  /* cercle */
+  height: 10px;
+  width: 10px;
+  border-radius: 10px;
+  border: 3px solid white;
+  background: #5CADD3;
+
+  /* position */
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translate(50%, -50%);
+}
+
+.service-description
+{
+  line-height: 1.8;
+}
+
+/* section projets */
+
+#projets
+{
+  background-color: #F5F5F5;
+}
+
+.ProjetMenu
+{
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+}
+
+.ProjetMenu li
+{
+
+  padding: 1%;
+  background-color: #E5E5E5;
+  border-bottom: 3px solid transparent; /* Pour eviter le saut lors du hover */
+  position: relative;
+}
+
+.ProjetMenu li:first-child
+{
+  border-radius: 4px 0 0 4px;
+}
+
+.ProjetMenu li:last-child
+{
+  border-radius: 0 4px 4px 0;
+}
+
+.ProjetMenu li:hover
+{
+  background-color: #5CADD3;
+  border-bottom: 3px solid #468CAD;
+  color: white;
+}
+
+.ProjetMenu li:hover .projet-triangle
+{
+  visibility: visible;
+}
+
+.projet-triangle
+{
+  /* Pour faire le triangle */
+  /* Plus d'infos : https://css-tricks.com/snippets/css/css-triangle/ */
+  width: 0px;
+  height: 0px;
+  border-top: 10px solid #468CAD;
+  border-right: 10px solid transparent;
+  border-left: 10px solid transparent;
+
+  /* Position */
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 100%);
+
+  visibility: hidden;
+}
+
+.projet-row
+{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.projet-cell
+{
+  padding: 1em;
+  flex: 1 0 25%; /* 100 / nombre de photos a voir sur une ligne */
+  box-sizing: border-box;
+  display: flex;
+  /* Pour centrer l'enfant horiizontalement */
+  justify-content: center;
+}
+
+.projet-cell img
+{
+  max-width: 100%;
+}
+
+.projet-lien
+{
+  position: absolute;
+  bottom: 4px;
+  height: 70px;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: none; /* Pour l'afficher seulement lors du hover */
+  color: white;
+}
+
+.projet-lien strong, .projet-lien div
+{
+
+  padding-left: 1em;
+  padding-top: 0.5em;
+  display: block;
+}
+
+.projet-cell a:hover .projet-lien
+{
+  display: block;
+}
+
+.projet-cell a
+{
+  position: relative;
+}
+
+.fa-eye
+{
+  /* position du logo */
+  position: absolute;
+  top: 0;
+  right: 5%;
+  transform: translateY(-50%); /* Pour le placer sur le top border du parent */
+  text-align: center;
+
+  /* cercle */
+  height: 30px;
+  line-height: 30px; /* centrer l'icone dans le cercle */
+  width: 30px;
+  border-radius: 30px;
+  border: 2px solid white;
+  background: #5CADD3;
+}
+
+/* footer */
+
+#plus-dinfos
+{
+  position: relative;
+  width: 100%;
+}
+
+iframe
+{
+  width: 100%;
+  height: 550px;
+  border: 0;
+}
+
+.filtre-map
+{
+  position: relative;
+}
+
+/* Pour ajouter un filtre en tant que premier enfant de filtre-map */
+.filtre-map::before
+{
+  content: "";
+  background:rgba(92, 173, 211, 0.4);
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+#plus-dinfos form
+{
+  position: absolute;
+  right: 20%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 350px;
+}
+
+fieldset
+{
+  background: rgba(255, 255, 255, 0.7);
+  width: 100%;
+  border: 0;
+}
+
+.form
+{
+  display: flex;
+  flex-direction: column;
+}
+
+.form input, textarea
+{
+  margin: 0.3em 0;
+  padding: 5px 10px;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+  font-size: 13px;
+
+}
+
+.form-title
+{
+  font-family: "Roboto-Bold", Sans-Serif;
+  font-size: 20px;
+}
+
+.form-adress
+{
+  color: #65696E;
+}
+
+.form-button
+{
+  background-color: #5CADD3;
+  cursor: pointer;
+  color: white;
+  font-family: "Roboto-Bold", Sans-Serif;
+  padding: 3%;
+  width: 30%;
+}
+
+
+
+/* Pour mobile */
+
+@media (max-width: 767px)
+{
+
+  header img
+  {
+    max-width: 100%;
+    height: auto;
+    margin-left: 0;
+  }
+
+  header
+  {
+    flex-direction: column;
+  }
+
+  #Menu
+  {
+    align-items: center;
+    height: auto;
+    margin-right: 0;
+  }
+
+  #Menu ul
+  {
+    padding: 0;
+  }
+
+  #Menu a:hover
+  {
+    border-top: none;
+  }
+
+  /* partie service prenne toute la place */
+  .service-LogoDesc
+  {
+   width: auto;
+ }
+
+ /* Disparition de l'image */
+ .service-img
+ {
+  display: none;
+}
+
+/* Cacher slider et bien placer le texte */
+#slider
+{
+  display: none;
+}
+
+#present
+{
+  width: 70%;
+  margin: 0 auto;
+  position: static;
+  transform: none;
+  padding-top: 1em;
+}
+
+#present h1
+{
+  color: #5CADD3;
+}
+
+#present p
+
+{
+  color: #5CADD3;
+}
+
+
+/* Images Nos projets */
+.projet-row
+{
+  display: block;
+  text-align: center;
+}
+
+/* footer */
+
+#plus-dinfos form
+{
+  position: static;
+  transform: none;
+  margin: 0 auto;
+}
+
+}
+
+
+/* Pour tablette */
+
+@media (min-width: 768px) and (max-width: 1024px)
+{
+
+  #slider figure img
+  {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Mettre 2 images par ligne */
+  .projet-cell
+  {
+    flex: 1 0 50%;
+    box-sizing: border-box;
+  }
+
+}
